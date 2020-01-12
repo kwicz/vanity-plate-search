@@ -7,13 +7,13 @@ import sqlite3
 app = Flask(__name__)
 
 # Configure session to use filesystem
-#app.config["SESSION_PERMANENT"] = False
-#app.config["SESSION_TYPE"] = "filesystem"
-#Session(app)
+app.config["SESSION_PERMANENT"] = False
+app.config["SESSION_TYPE"] = "filesystem"
+Session(app)
 
 # Connect to database
-#conn = sqlite3.connect('dmv2u.sqlite')
-#cursor = conn.cursor()
+conn = sqlite3.connect('dmv2u.sqlite')
+cursor = conn.cursor()
 
 @app.route("/", methods=['GET'])
 def home():
