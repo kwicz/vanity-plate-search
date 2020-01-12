@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DMV2U</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+  <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="/">DMV2U</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/available">Available</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/restricted">Restricted</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/assigned">Assigned</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container p-5" align="center">
+    {% block main %}{% endblock %}
+  </main>
+
+  <footer class="container">
+    <p>&copy; Team Solo 2020</p>
+  </footer>
+
+</body>
+
+</html>
