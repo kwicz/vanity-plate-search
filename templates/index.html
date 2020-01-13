@@ -12,10 +12,22 @@
         <div class="container">
           <h1 class="display-3">DMV2U</h1>
           <p>Wanting a vanity license plate? Check the status of what you're looking for before going through the application process.</p>
-          <form class="form-inline my-2 my-lg-0">
-	          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-	          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          <form class="form-inline my-2 my-lg-0" action="/" method="POST">
+	          <input name="search" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+	          <button class="btn btn-outline-success my-2 my-sm-0" id="search-btn" type="submit">Search</button>
 	        </form>
+          <br>
+          {% if status %}
+            <div>
+              <p> {{ search }} is {{ status }}. Last checked on {{ last }}.</p>
+            </div>
+          {% endif %}
+          {% if record %}
+            <div>
+              <p> {{ record }}.</p>
+            </div>
+          {% endif %}
+
         </div>
       </div>
 
@@ -24,21 +36,36 @@
           <div class="col-md-4">
             <h2>Available</h2>
             <p>Not feeling creative? Check a list of available plates.</p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            <form class="form-inline my-2 my-lg-0" action="/" method="POST">
+              <button class="btn btn-secondary" name="available" type="submit">View list &raquo;</button>
+            </form>
           </div>
           <div class="col-md-4">
             <h2>Restricted</h2>
             <p>Wanting a risque place? Check this list to see which plates have already been denied.</p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            <form class="form-inline my-2 my-lg-0" action="/" method="POST">
+              <button class="btn btn-secondary" name="restricted" type="submit">View list &raquo;</button>
+            </form>
           </div>
           <div class="col-md-4">
             <h2>Assigned</h2>
             <p>Maybe somebody already has the license plate of your dreams! Check here to see if a plate is already assigned.</p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            <form class="form-inline my-2 my-lg-0" action="/" method="POST">
+              <button class="btn btn-secondary" name="assigned" type="submit">View list &raquo;</button>
+            </form>
           </div>
         </div>
         <hr>
       </div>
+    
+    {% if list in lists %}
+
+      <div>
+        
+      </div>
+
+    {% endif %}
+
     </main>
 
 {% endblock %}
