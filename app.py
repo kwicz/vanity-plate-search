@@ -17,88 +17,62 @@ conn = sqlite3.connect('dmv2u.sqlite')
 cursor = conn.cursor()
 
 
-
+# Route to landing page
 @app.route("/", methods=['GET', 'POST'])
 def home():
-	
-	if request.method == 'GET':
 
-		return render_template("index.html")
+	return render_template("index.html")
 
-	else: 
 
-		if request.form.get("search"):
-			search = request.form.get("search")
-			search = search.upper()
-			print("search: " + search)
+# Searches for plate status
+@app.route("/search/", methods=['POST'])
+def checkPlate():
 
-			record = helpers.select(search)
+	search = request.form.get("search")
+	search = search.upper()
+	print("search: " + search)
 
-			if record == "License Plate doesn\'t exist in the database":
-				return render_template("index.html", record=record)
+	record = helpers.select(search)
 
-			status = record[0].lower()
-			last = record[1]
+	print("app record: " + str(record))
 
-			print("status and last: " + status + " + " + last)
+	if record == "License Plate doesn\'t exist in the database":
+		return render_template("index.html", record=record)
 
-			return render_template("index.html", search=search, status=status, last=last)
+	else:
+		status = record[0].lower()
+		last = record[1]
 
-			clear(search, status, last)
+		print("status and last: " + status + " + " + last)
 
-		elif request.form["available"]:
-			query = request.form["available"]
-			print("query: " + query)
+		return render_template("index.html", search=search, status=status, last=last)
 
-			return render_template("index.html")
+		clear(search, status, last)
+		print("search, status, last: " + search + satus + last)
 
-		elif request.form["restricted"]:
-			query = request.form["available"]
-			print("query: " + query)
 
-			return render_template("index.html")
-
-		elif request.form["assigned"]:
-			query = request.form["available"]
-			print("query: " + query)
-
-			return render_template("index.html")
-
-@app.route("/results", methods=['GET'])
-def searchResults():
-	
-	if request.method == 'GET':
-		return render_template("results.html")
-
-	else: 
-		return render_template("results.html")
-
-@app.route("/restricted", methods=['GET'])
-def restrictedPlates():
-	
-	if request.method == 'GET':
-		return render_template("restricted.html")
-
-	else: 
-		return render_template("restricted.html")
-
-@app.route("/available", methods=['GET'])
+# Returns table of available plates
+@app.route("/available/", methods=['POST'])
 def availablePlates():
-	
-	if request.method == 'GET':
-		return render_template("available.html")
 
-	else: 
-		return render_template("available.html")
+	print("AVAILABLE PLATES!")
 
-@app.route("/assigned", methods=['GET'])
+	return render_template("index.html")
+
+
+# Returns table of restricted plates
+@app.route("/restricted/", methods=['POST'])
+def restrictedPlates():
+
+	print("RESTRICTED PLATES!")
+
+	return render_template("index.html")
+
+
+# Returns table of assigned plates
+@app.route("/assigned/", methods=['POST'])
 def assignedPlates():
-	
-	if request.method == 'GET':
-		return render_template("assigned.html")
 
-	else: 
-		return render_template("assigned.html")
+	print("ASSIGNED PLATES!")
 
-
-
+	return render_template("index.html")
