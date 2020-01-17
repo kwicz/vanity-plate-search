@@ -1,0 +1,14 @@
+.jumbotron form {
+	display: block;
+	text-align: center;
+}
+
+.jumbotron {
+	display: block;
+	text-align: center;
+}
+
+.col-md-4 form {
+	display: block;
+	text-align: center;
+}
