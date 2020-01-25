@@ -1,4 +1,4 @@
-# _{Application Name}_
+# _DMV2U_
 
 #### _Search the Oregon DMV, Jan 2020_
 
@@ -7,7 +7,7 @@
 
 ## Preview
 
-[![Landing Page Preview](/img/dmv-landing.png)]
+![Landing Page Preview](/img/dmv-landing.png)
 
 ## Description
 
