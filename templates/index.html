@@ -11,13 +11,15 @@
       <div class="jumbotron">
         <div class="container">
           <h1 class="display-3">DMV2U</h1>
-          <p>Wanting a vanity license plate? Check the status of what you're looking for before going through the application process.</p>
-          
-            <form class="form-inline my-2 my-lg-0" action="/search/" method="POST">
-  	          <input name="search" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-  	          <button class="btn btn-outline-success my-2 my-sm-0" id="search-btn" type="submit">Search</button>
+          <p>Find the status of vanity license plates.</p>
+            <form class="form-inline my-2 my-lg-0" action="/quick-search/" method="POST">
+  	          <input name="quick-search" class="form-control mr-sm-2" type="text" placeholder="Quick Search" aria-label="Search">
+  	          <button class="btn btn-outline-success my-2 my-sm-0" id="quick-search-btn" type="submit">Quick Search</button>
   	        </form>
-          
+            <form class="form-inline my-2 my-lg-0" action="/search/" method="POST">
+  	          <input name="interactive-search" class="form-control mr-sm-2" type="text" placeholder="Interactive Search" aria-label="Search">
+  	          <button class="btn btn-outline-success my-2 my-sm-0" id="interactive-search-btn" type="submit">Interactive Search</button>
+  	        </form>
           <br>
           {% if status %}
             <div>
@@ -29,7 +31,6 @@
               <p> {{ record }}</p>
             </div>
           {% endif %}
-
         </div>
       </div>
 
@@ -57,7 +58,6 @@
             </form>
           </div>
         </div>
-        <hr>
       </div>
     
     {% if list in lists %}

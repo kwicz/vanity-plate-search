@@ -13,6 +13,10 @@
 
 _Search the Oregon DMV's Vanity Plate Database.  You can enter in a vanity plate number to see if assigned, available, or restricted.  You can also read lists of assigned, available, and restricted plates._
 
+## Behavior Driven Specs
+|User can search database by plate to see plate's status|BUTT|Restricted|
+|
+
 ## Setup/Installation Requirements
 
 In your terminal:
