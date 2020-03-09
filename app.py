@@ -37,29 +37,46 @@ def checkPlate():
 		print("status and last: " + status + " + " + last)
 		return render_template("index.html", search=search, status=status, last=last)
 		clear(search, status, last)
-		print("search, status, last: " + search + satus + last)
+		print("search, status, last: " + search + status + last)
 
-# Returns table of available plates
+# Loads page with search tool
 @app.route("/search/", methods=['GET', 'POST'])
-def searchPlates():
-	print("SEARCH PLATES")
-	return render_template("search.html")
+def interactiveSearch():	
+	if request.method == 'GET':
+		print("SEARCH PLATES")
+		return render_template("search.html")
+	# Returns table of matching search results
+	else:
+		search = request.form.get("plateSearchInput")
+		search = search.upper()
+		print("search: " + search)
+		records = helpers.interactiveSearch(search)
+		# for record in records:
+		# 	plate = record[1]
+		# 	status = record[2]
+		# 	last = record[3]
+		# 	data = {"plate": plate, "status": status, "last": last}
+		# 	records.append(data)
+		# 	print("record: " + str(record[1]))
+			
 
+		return render_template("search.html", records=records)
+	
 
 # Returns table of available plates
 @app.route("/available/", methods=['POST'])
 def availablePlates():
 	print("AVAILABLE PLATES!")
-	return render_template("index.html")
+	return render_template("search.html")
 
 # Returns table of restricted plates
 @app.route("/restricted/", methods=['POST'])
 def restrictedPlates():
 	print("RESTRICTED PLATES!")
-	return render_template("index.html")
+	return render_template("search.html")
 
 # Returns table of assigned plates
 @app.route("/assigned/", methods=['POST'])
 def assignedPlates():
 	print("ASSIGNED PLATES!")
-	return render_template("index.html")
+	return render_template("search.html")

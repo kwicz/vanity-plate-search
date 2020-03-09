@@ -6,42 +6,51 @@
 
 {% block main %}
 
-    <main role="main">
-      <br>
-          <div class="jumbotron search-form">
-            <form>
-              <div class="form-group">
-                <input type="text" class="form-control autofocus" id="plateSearchInput" placeholder="Plate Number" maxlength="7">
-              </div>
-              <select class="custom-select custom-select-sm custom-select-inline">
-                <option selected>Status</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </select>
-              <select class="custom-select custom-select-sm custom-select-inline">
-                <option selected>Last Checked</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </select>
-              <select class="custom-select custom-select-sm custom-select-inline">
-                <option selected>Previous Status</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </select>
-              <select class="custom-select custom-select-sm custom-select-inline">
-                <option selected>Previous Status Date</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-              </select>
-              <button class="btn btn-outline-success my-2 my-sm-0" id="search-form-button" type="submit">Search</button>
-            </form>
+  <main role="main">
+    <br>
+    <div class="jumbotron search-form">
+      <form action="/search/" method="POST">
+          <div class="form-group">
+            <input type="text" class="form-control autofocus" name="plateSearchInput" id="plateSearchInput" placeholder="Plate Number" maxlength="7">
           </div>
+        <select class="custom-select custom-select-sm custom-select-inline" id="plateStatus">
+          <option selected>Status</option>
+          <option value="available">Available</option>
+          <option value="assigned">Assigned</option>
+          <option value="restricted">Restricted</option>
+          <option value="issued">Issued</option>
+        </select>
+        <select class="custom-select custom-select-sm custom-select-inline" id="previousStatus">
+          <option selected>Previous Status</option>
+          <option value="available">Available</option>
+          <option value="assigned">Assigned</option>
+          <option value="restricted">Restricted</option>
+          <option value="issued">Issued</option>
+        </select>
+        <button class="btn btn-outline-success my-2 my-sm-0" id="search-form-button" type="submit">Search</button>
+      </form>
+    </div>
 
-    </main>
+    <div class="container">
+      <table id="results">
+        <tr>
+          <th>License Number</th>
+          <th>Current Status</th>
+          <th>Date Checked</th>
+          <th>Previous Status</th>
+          <th>Previous Status Date</th>
+          {% for record in records %}
+          <td>{{ record[1]}}</td>
+          <td>{{ record[2] }}</td>
+          <td>{{ record[3] }}</td>
+          <!-- <td>Placeholder</td>
+          <td>Placeholder</td> -->
+          {% endfor %}
+        </tr>
+      </table>
+    </div>
+
+  </main>
 
 {% endblock %}
 
