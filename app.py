@@ -51,13 +51,16 @@ def interactiveSearch():
 		search = search.upper()
 		print("search: " + search)
 		records = helpers.interactiveSearch(search)
-		# for record in records:
-		# 	plate = record[1]
-		# 	status = record[2]
-		# 	last = record[3]
-		# 	data = {"plate": plate, "status": status, "last": last}
-		# 	records.append(data)
-		# 	print("record: " + str(record[1]))
+		for record in records:
+			plate = record[1]
+			print("plate: " + plate)
+			status = record[2]
+			print("status: " + status)
+			last = record[3]
+			print("last: " + last)
+			# data = {"plate": plate, "status": status, "last": last}
+			# records.append(data)
+			print("record: " + str(record[1]))
 			
 
 		return render_template("search.html", records=records)

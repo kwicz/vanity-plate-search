@@ -13,17 +13,46 @@
 
 _Search the Oregon DMV's Vanity Plate Database.  You can enter in a vanity plate number to see if assigned, available, or restricted.  You can also read lists of assigned, available, and restricted plates._
 
-## Behavior Driven Specs
-|User can search database by plate to see plate's status|BUTT|Restricted|
-|
 
 ## Setup/Installation Requirements
 
-In your terminal:
+### 1. Download the repository
 
-* ```git clone https://github.com/kwicz/vanity-plate-search.git```
-* ```cd vanity-plate-search```
-* ```flask run```
+In Terminal:
+
+* Navigate to where you want this application to be saved, i.e.:
+```sh
+cd desktop
+```
+* Clone the file from GitHub with HTTPS
+```sh
+git clone https://github.com/kwicz/vanity-plate-search.git
+```
+* Open file in your preferred text editor
+  * On Mac: 
+  ```sh 
+  open -a {your text editor} vanity-plate-search
+  ```
+  * On Windows: 
+  ```sh
+  vanity-plate-search
+  ```
+
+To Download Manually:
+
+* Navigate to https://github.com/kwicz/vanity-plate-search.
+* Click green "Clone or Download" button.
+* Click "Download ZIP".
+* Click downloaded file to unzip.
+* Open folder called "vanity-plate-search-master".
+* Right click "index.html" and select your preferred browser or text editor.
+
+### 2. Lauch the program
+Navigate to the root directory of your project in the terminal and enter:
+```sh
+cd vanity-plate-search
+flask run
+```
 
 ## Known Bugs
 
@@ -35,14 +64,14 @@ _Have a bug or an issue with this application? [Open a new issue](https://github
 
 ## Technologies Used
 
-* _DMV2U Database_
-* _Python & Flask_
+* _[DMV2U Open Source Database](https://github.com/corysolovewicz/dmv2u)_
+* _Python_
+* _Flask_
 * _SQlite_
-* _HTML & CSS_
 * _Bootstrap 4_
 
 ### License
 
 [MIT](https://choosealicense.com/licenses/mit/)
 
-Copyright (c) 2020 **_K.Wicz_**
+Copyright (c) 2020 **_K. Wicz_**
